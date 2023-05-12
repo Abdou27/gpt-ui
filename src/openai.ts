@@ -17,7 +17,8 @@ export async function send_prompt_to_api(): Promise<string | undefined> {
       max_tokens: chat_settings.max_tokens,
       presence_penalty: chat_settings.presence_penalty,
       frequency_penalty: chat_settings.frequency_penalty,
-      stream: true,
+      // TODO: Try streaming later
+      // stream: true,
     });
     console.log({completion});
     if (completion.data.choices[0].message === undefined)

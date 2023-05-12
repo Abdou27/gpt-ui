@@ -1,6 +1,6 @@
 <template>
   <q-page class='row'>
-    <div id='chat_settings' class='column no-wrap col q-pa-md'>
+    <div id='chat_settings' class='column no-wrap col-12 col-md q-pa-md'>
       <q-form @submit="set_chat_title" class='row'>
         <q-input v-model='chat_title' label='Chat Title' type='text' class='full-width'></q-input>
       </q-form>
@@ -67,7 +67,7 @@
         </div>
       </q-form>
     </div>
-    <div id='chat_messages' class='same-width full-height column no-wrap justify-between items-center q-pa-md'>
+    <div id='chat_messages' class='col-12 col-md full-height column no-wrap justify-between items-center q-pa-md'>
       <div class='same-width flex-0-0-auto'>
         <q-input type='textarea' v-model='system_prompt' label='System Prompt' />
       </div>
@@ -77,6 +77,7 @@
             <div v-if="message.role === 'user'" class='row items-baseline'>
               <div class='q-pr-sm pt-20px'>{{ message.name ?? 'User' }} : </div>
               <pre class="user-message col">{{ message.content }}</pre>
+              <q-btn icon='edit' flat round class='q-ml-xs'></q-btn>
             </div>
             <div v-else-if="message.role === 'assistant'" class='row items-baseline'>
               <div class='q-pr-sm pt-20px'>Assistant :</div>
